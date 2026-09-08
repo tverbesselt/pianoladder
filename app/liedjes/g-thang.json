@@ -1,0 +1,89 @@
+{
+ "id": "g-thang",
+ "titel": "Nuthin' but a G Thang",
+ "artiest": "Dr. Dre",
+ "bron": "gekochte muziek/dr_dre/g_thang.mid",
+ "spoor": 4,
+ "spoornaam": "Flute",
+ "bpm": 94,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": -7,
+ "niveau": 2,
+ "lus": true,
+ "toelichting": "De synthhook, verschoven naar witte toetsen.",
+ "lengte": 16,
+ "laag": 59,
+ "hoog": 64,
+ "zwart": 0,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 0.25,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 1.0,
+   "d": 0.25,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 1.5,
+   "d": 0.25,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 5.0,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 5.5,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 6.0,
+   "d": 0.25,
+   "p": 59,
+   "h": "R"
+  },
+  {
+   "t": 9.0,
+   "d": 0.25,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 9.5,
+   "d": 0.25,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 13.0,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 13.5,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 14.0,
+   "d": 0.25,
+   "p": 59,
+   "h": "R"
+  }
+ ]
+}

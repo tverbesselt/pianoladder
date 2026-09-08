@@ -1,0 +1,10 @@
+# Gekochte MIDI-bestanden: auteursrechtelijk beschermd, blijven lokaal.
+gekochte muziek/
+bibliotheek.json
+app/liedjes/bibliotheek-lijst.json
+
+# Gereedschap en rommel
+.claude/
+__pycache__/
+*.pyc
+Thumbs.db

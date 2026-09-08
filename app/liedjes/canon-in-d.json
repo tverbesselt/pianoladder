@@ -1,0 +1,119 @@
+{
+ "id": "canon-in-d",
+ "titel": "Canon in D",
+ "artiest": "Pachelbel",
+ "bron": "met de hand genoteerd",
+ "spoor": null,
+ "spoornaam": "",
+ "bpm": 66,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": 0,
+ "niveau": 2,
+ "lus": true,
+ "toelichting": "Naar C verschoven zodat alles wit blijft. Rechts de melodie, links de acht akkoorden waar half de popmuziek op geleend is.",
+ "lengte": 16,
+ "laag": 36,
+ "hoog": 76,
+ "zwart": 0,
+ "noten": [
+  {
+   "t": 0,
+   "d": 2,
+   "p": 48,
+   "h": "L"
+  },
+  {
+   "t": 0,
+   "d": 2,
+   "p": 76,
+   "h": "R"
+  },
+  {
+   "t": 2,
+   "d": 2,
+   "p": 43,
+   "h": "L"
+  },
+  {
+   "t": 2,
+   "d": 2,
+   "p": 74,
+   "h": "R"
+  },
+  {
+   "t": 4,
+   "d": 2,
+   "p": 45,
+   "h": "L"
+  },
+  {
+   "t": 4,
+   "d": 2,
+   "p": 72,
+   "h": "R"
+  },
+  {
+   "t": 6,
+   "d": 2,
+   "p": 40,
+   "h": "L"
+  },
+  {
+   "t": 6,
+   "d": 2,
+   "p": 71,
+   "h": "R"
+  },
+  {
+   "t": 8,
+   "d": 2,
+   "p": 41,
+   "h": "L"
+  },
+  {
+   "t": 8,
+   "d": 2,
+   "p": 69,
+   "h": "R"
+  },
+  {
+   "t": 10,
+   "d": 2,
+   "p": 36,
+   "h": "L"
+  },
+  {
+   "t": 10,
+   "d": 2,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 12,
+   "d": 2,
+   "p": 41,
+   "h": "L"
+  },
+  {
+   "t": 12,
+   "d": 2,
+   "p": 69,
+   "h": "R"
+  },
+  {
+   "t": 14,
+   "d": 2,
+   "p": 43,
+   "h": "L"
+  },
+  {
+   "t": 14,
+   "d": 2,
+   "p": 71,
+   "h": "R"
+  }
+ ]
+}

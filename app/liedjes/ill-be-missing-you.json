@@ -1,0 +1,71 @@
+{
+ "id": "ill-be-missing-you",
+ "titel": "I'll Be Missing You",
+ "artiest": "Puff Daddy",
+ "bron": "gekochte muziek/PuffDaddy/Ill_Be_Missing_You.mid",
+ "spoor": 4,
+ "spoornaam": "Synth Strings",
+ "bpm": 109,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": -2,
+ "niveau": 1,
+ "lus": true,
+ "toelichting": "Vier lange noten per maat, meer niet. Als eerste tweehandige stuk het rustigste dat er is.",
+ "lengte": 16,
+ "laag": 65,
+ "hoog": 77,
+ "zwart": 0,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 1.0,
+   "p": 65,
+   "h": "R"
+  },
+  {
+   "t": 1.0,
+   "d": 1.0,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 2.0,
+   "d": 1.0,
+   "p": 69,
+   "h": "R"
+  },
+  {
+   "t": 3.0,
+   "d": 1.0,
+   "p": 74,
+   "h": "R"
+  },
+  {
+   "t": 4.0,
+   "d": 7.0,
+   "p": 72,
+   "h": "R"
+  },
+  {
+   "t": 11.0,
+   "d": 0.75,
+   "p": 77,
+   "h": "R"
+  },
+  {
+   "t": 11.5,
+   "d": 2.75,
+   "p": 76,
+   "h": "R"
+  },
+  {
+   "t": 14.0,
+   "d": 2.0,
+   "p": 72,
+   "h": "R"
+  }
+ ]
+}

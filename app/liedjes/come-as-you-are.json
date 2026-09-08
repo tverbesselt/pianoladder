@@ -1,0 +1,107 @@
+{
+ "id": "come-as-you-are",
+ "titel": "Come As You Are",
+ "artiest": "Nirvana",
+ "bron": "gekochte muziek/NIRVANA/come_as_you_are.mid",
+ "spoor": 1,
+ "spoornaam": "WinJammer Demo",
+ "bpm": 128,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": 1,
+ "niveau": 1,
+ "lus": true,
+ "toelichting": "De openingsriff, terug in de originele toonaard E. Een zwarte toets: F#.",
+ "lengte": 8.0,
+ "laag": 52,
+ "hoog": 59,
+ "zwart": 1,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 0.5,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 0.5,
+   "d": 0.5,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 1.0,
+   "d": 0.5,
+   "p": 53,
+   "h": "R"
+  },
+  {
+   "t": 1.5,
+   "d": 1.0,
+   "p": 54,
+   "h": "R"
+  },
+  {
+   "t": 2.5,
+   "d": 1.0,
+   "p": 57,
+   "h": "R"
+  },
+  {
+   "t": 3.0,
+   "d": 1.0,
+   "p": 54,
+   "h": "R"
+  },
+  {
+   "t": 3.5,
+   "d": 1.0,
+   "p": 57,
+   "h": "R"
+  },
+  {
+   "t": 4.0,
+   "d": 1.0,
+   "p": 54,
+   "h": "R"
+  },
+  {
+   "t": 4.5,
+   "d": 1.5,
+   "p": 54,
+   "h": "R"
+  },
+  {
+   "t": 5.0,
+   "d": 0.5,
+   "p": 53,
+   "h": "R"
+  },
+  {
+   "t": 5.5,
+   "d": 1.0,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 6.0,
+   "d": 2.0,
+   "p": 59,
+   "h": "R"
+  },
+  {
+   "t": 6.5,
+   "d": 0.5,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 7.0,
+   "d": 1.5,
+   "p": 52,
+   "h": "R"
+  }
+ ]
+}

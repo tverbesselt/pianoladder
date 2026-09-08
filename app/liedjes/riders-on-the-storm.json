@@ -1,0 +1,95 @@
+{
+ "id": "riders-on-the-storm",
+ "titel": "Riders on the Storm",
+ "artiest": "The Doors",
+ "bron": "gekochte muziek/doors/riders2.mid",
+ "spoor": 11,
+ "spoornaam": "Melody",
+ "bpm": 100,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": 0,
+ "niveau": 2,
+ "lus": true,
+ "toelichting": "De zanglijn. Traag, veel lucht ertussen, ideaal om rustig te leren mikken.",
+ "lengte": 20,
+ "laag": 62,
+ "hoog": 69,
+ "zwart": 0,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 0.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 1.0,
+   "d": 0.5,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 1.5,
+   "d": 0.5,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 2.0,
+   "d": 5.75,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 8.0,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 8.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 9.0,
+   "d": 0.5,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 9.5,
+   "d": 0.5,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 10.0,
+   "d": 5.25,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 15.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 16.0,
+   "d": 0.5,
+   "p": 69,
+   "h": "R"
+  }
+ ]
+}

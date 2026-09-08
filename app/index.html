@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pianoladder</title>
+<link rel="stylesheet" href="stijl.css">
+</head>
+<body>
+
+<div id="diagnose" class="diagnose verborgen"></div>
+
+<script>
+// Gewoon script, geen module: dit draait ook als js/app.js niet start.
+window.pianoladderMeld = function (kop, regels) {
+  var d = document.getElementById('diagnose');
+  d.innerHTML = '<button class="sluitkruis" title="wegklikken">&times;</button>' +
+    '<b>' + kop + '</b><ul><li>' + regels.join('</li><li>') + '</li></ul>';
+  d.querySelector('.sluitkruis').onclick = function () { d.classList.add('verborgen'); };
+  d.classList.remove('verborgen');
+};
+window.addEventListener('error', function (e) {
+  if (e.message) {
+    window.pianoladderMeld('Er ging iets mis in de app', [
+      e.message,
+      (e.filename || '') + (e.lineno ? ' regel ' + e.lineno : ''),
+      'Stuur deze tekst door, dan weet ik meteen waar het zit.',
+    ]);
+  }
+}, true);
+window.addEventListener('unhandledrejection', function (e) {
+  window.pianoladderMeld('Er ging iets mis bij het laden', [
+    String(e.reason && e.reason.message || e.reason),
+    'Stuur deze tekst door, dan weet ik meteen waar het zit.',
+  ]);
+});
+// Draait de module na een seconde nog steeds niet, dan zeggen we dat.
+setTimeout(function () {
+  if (!window.pianoladder) {
+    window.pianoladderMeld('De app is niet opgestart', [
+      'De browser heeft js/app.js niet uitgevoerd.',
+      'Gebruik je Chrome of Edge? Firefox en Safari kunnen dit niet.',
+      'Staat er in het adres echt /app/ aan het eind?',
+      'Adres nu: ' + location.href,
+    ]);
+  }
+}, 1500);
+</script>
+
+<noscript>
+  <p style="padding:20px">JavaScript staat uit. Zonder JavaScript werkt de app niet.</p>
+</noscript>
+
+<header class="balk">
+  <div class="merk">Pianoladder <span id="bouw" class="bouw">geen script</span></div>
+
+  <label class="veld">
+    <span>Liedje</span>
+    <select id="keuze"></select>
+  </label>
+
+  <button id="bibKnop" class="uitgelicht">Mijn MIDI-bestanden…</button>
+
+  <div class="titel">
+    <strong id="liedTitel">—</strong>
+    <span id="liedArtiest"></span>
+  </div>
+
+  <div class="rechts">
+    <span id="laatsteNoot" class="noottest">nog geen noot ontvangen</span>
+    <span id="midiLamp" class="lamp uit" title="MIDI-status"></span>
+    <span id="midiTekst" class="klein">MIDI zoeken…</span>
+  </div>
+</header>
+
+<main>
+  <canvas id="doek"></canvas>
+
+  <div id="melding" class="melding verborgen"></div>
+</main>
+
+<footer class="balk onder">
+  <div class="groep">
+    <button id="startKnop" class="hoofd">Spelen</button>
+    <button id="opnieuwKnop">Opnieuw</button>
+    <button id="voorKnop">Voorspelen</button>
+  </div>
+
+  <div class="groep">
+    <span class="etiket">Modus</span>
+    <div class="schakelaars" id="modus">
+      <button data-modus="wachten" class="aan">Wachten</button>
+      <button data-modus="meespelen">Meespelen</button>
+    </div>
+  </div>
+
+  <label class="veld">
+    <span>Tempo <b id="tempoWaarde">60%</b></span>
+    <input id="tempo" type="range" min="25" max="100" step="5" value="60">
+  </label>
+
+  <div class="groep vinkjes">
+    <label><input type="checkbox" id="namen" checked> Notennamen</label>
+    <label><input type="checkbox" id="lus" checked> Herhalen</label>
+    <label><input type="checkbox" id="metronoom"> Metronoom</label>
+    <label><input type="checkbox" id="eigenGeluid"> Eigen geluid</label>
+  </div>
+
+  <div class="groep stand">
+    <span title="goed gespeeld">✓ <b id="treffers">0</b></span>
+    <span title="misgeslagen">✗ <b id="fouten">0</b></span>
+    <span title="rondes">↻ <b id="rondes">0</b></span>
+  </div>
+</footer>
+
+<div id="hulp" class="hulp klein">
+  Geen piano aangesloten? Speel mee met je toetsenbord:
+  <kbd>z s x d c v g b h n j m</kbd> en <kbd>q 2 w 3 e r 5 t 6 y 7 u</kbd> —
+  met <kbd>←</kbd> <kbd>→</kbd> verschuif je een octaaf.
+</div>
+
+<div id="bib" class="overlay verborgen">
+  <div class="venster">
+    <header class="vensterkop">
+      <strong>Mijn MIDI-bestanden</strong>
+      <input id="bibZoek" placeholder="zoek op titel of artiest…">
+      <select id="bibNiveau">
+        <option value="alles">alle niveaus</option>
+        <option value="1">niveau 1</option>
+        <option value="2">niveau 2</option>
+        <option value="3">niveau 3</option>
+        <option value="4">niveau 4</option>
+        <option value="5">niveau 5</option>
+      </select>
+      <label class="klein"><input type="checkbox" id="bibDup"> duplicaten</label>
+      <span id="bibAantal" class="klein"></span>
+      <span class="rechts">
+        <label class="knopachtig">eigen MIDI…<input type="file" id="bibBestand" accept=".mid,.midi" hidden></label>
+        <button id="bibSluit">Sluiten</button>
+      </span>
+    </header>
+    <div class="vensterinhoud">
+      <ul id="bibLijst"></ul>
+      <div id="bibDetail"><p class="leeg">Kies links een stuk.</p></div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

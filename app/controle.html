@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pianoladder — controle</title>
+<style>
+  body { background:#0e1116; color:#e6e9ef; font:15px/1.6 "Segoe UI",system-ui,sans-serif;
+         margin:0; padding:28px 32px; }
+  h1 { color:#ff8a3d; font-size:21px; margin:0 0 4px; }
+  p.bij { color:#8b95a6; margin:0 0 22px; font-size:13px; }
+  table { border-collapse:collapse; width:100%; max-width:1000px; }
+  td { padding:9px 12px; border-bottom:1px solid #262d38; vertical-align:top; }
+  td.wat { width:290px; color:#8b95a6; }
+  td.hoe { font-family:ui-monospace,Consolas,monospace; font-size:13px; word-break:break-word; }
+  .goed { color:#3ddc84; font-weight:600; }
+  .mis  { color:#ff5f56; font-weight:600; }
+  .wacht{ color:#8b95a6; }
+  #klaar { margin-top:24px; padding:14px 18px; border-radius:9px; font-size:14px; }
+  #klaar.ok  { background:#12271b; border-left:4px solid #3ddc84; }
+  #klaar.nok { background:#2a1618; border-left:4px solid #ff5f56; }
+  a { color:#4fc3f7; }
+</style>
+</head>
+<body>
+
+<h1>Pianoladder — controle</h1>
+<p class="bij">Deze pagina test of alles bereikbaar is. Maak er een schermafdruk van als er iets rood staat.</p>
+
+<table id="tabel"></table>
+<div id="klaar"></div>
+
+<script>
+var tabel = document.getElementById('tabel');
+var fouten = 0;
+
+function regel(wat) {
+  var tr = document.createElement('tr');
+  tr.innerHTML = '<td class="wat">' + wat + '</td><td class="hoe wacht">bezig…</td>';
+  tabel.appendChild(tr);
+  return {
+    ok: function (t) { tr.cells[1].className = 'hoe goed'; tr.cells[1].textContent = '✓ ' + t; },
+    mis: function (t) { fouten++; tr.cells[1].className = 'hoe mis'; tr.cells[1].textContent = '✗ ' + t; },
+    los: function (t) { tr.cells[1].className = 'hoe'; tr.cells[1].textContent = t; }
+  };
+}
+
+function haal(adres) {
+  return fetch(adres, { cache: 'no-store' }).then(function (r) {
+    return r.text().then(function (t) { return { status: r.status, tekst: t }; });
+  });
+}
+
+function main() {
+  regel('Adres van deze pagina').los(location.href);
+  regel('Browser').los(navigator.userAgent);
+  regel('Web MIDI beschikbaar').los(
+    navigator.requestMIDIAccess ? 'ja — Chrome of Edge' : 'NEE — dit is geen Chrome of Edge');
+
+  var r1 = regel('Liedjeslijst (liedjes/index.json)');
+  haal('liedjes/index.json').then(function (a) {
+    if (a.status !== 200) return r1.mis('server gaf ' + a.status);
+    try {
+      var d = JSON.parse(a.tekst);
+      r1.ok(d.liedjes.length + ' liedjes, ' + a.tekst.length + ' tekens');
+    } catch (e) { r1.mis('geen geldige JSON: ' + e.message); }
+  }, function (e) { r1.mis('niet bereikbaar: ' + e.message); });
+
+  var r2 = regel('Bibliotheeklijst (liedjes/bibliotheek-lijst.json)');
+  haal('liedjes/bibliotheek-lijst.json').then(function (a) {
+    if (a.status !== 200) return r2.mis('server gaf ' + a.status + ' — draai py tools\\scan.py');
+    try {
+      var d = JSON.parse(a.tekst);
+      var n1 = 0;
+      for (var i = 0; i < d.items.length; i++) if (d.items[i].moeilijkheid === 1) n1++;
+      r2.ok(d.items.length + ' stukken (' + n1 + ' op niveau 1), ' +
+            Math.round(a.tekst.length / 1024) + ' kB');
+    } catch (e) { r2.mis('geen geldige JSON: ' + e.message); }
+  }, function (e) { r2.mis('niet bereikbaar: ' + e.message); });
+
+  var r3 = regel('Een MIDI uit je verzameling');
+  haal('liedjes/bibliotheek-lijst.json').then(function (a) {
+    var d = JSON.parse(a.tekst);
+    var pad = d.items[0].pad;
+    var adres = '../gekochte muziek/' + pad.split('/').map(encodeURIComponent).join('/');
+    return fetch(adres, { cache: 'no-store' }).then(function (r) {
+      if (r.status !== 200) throw new Error('server gaf ' + r.status + ' op ' + pad);
+      return r.arrayBuffer().then(function (b) {
+        var kop = String.fromCharCode.apply(null, new Uint8Array(b.slice(0, 4)));
+        if (kop !== 'MThd') throw new Error('geen MIDI-kop maar "' + kop + '"');
+        r3.ok(pad + ' — ' + b.byteLength + ' bytes, kop MThd');
+      });
+    });
+  }).catch(function (e) { r3.mis(e.message); });
+
+  var r4 = regel('De app zelf (js/app.js)');
+  haal('js/app.js').then(function (a) {
+    if (a.status !== 200) return r4.mis('server gaf ' + a.status);
+    var m = a.tekst.match(/BOUW = '([^']+)'/);
+    r4.ok((m ? m[1] : 'geen bouwnummer gevonden') + ', ' + a.tekst.length + ' tekens');
+  }, function (e) { r4.mis('niet bereikbaar: ' + e.message); });
+
+  var r5 = regel('De overige modules');
+  var namen = ['klavier.js', 'invoer.js', 'speler.js', 'audio.js',
+               'bibliotheek.js', 'midilezer.js', 'kandidaten.js', 'reduceer.js'];
+  Promise.all(namen.map(function (n) {
+    return haal('js/' + n).then(function (a) { return { n: n, s: a.status }; });
+  })).then(function (uit) {
+    var slecht = uit.filter(function (x) { return x.s !== 200; });
+    if (slecht.length) {
+      r5.mis(slecht.map(function (x) { return x.n + ' → ' + x.s; }).join(', '));
+    } else {
+      r5.ok('alle ' + namen.length + ' bestanden bereikbaar');
+    }
+  });
+
+  setTimeout(function () {
+    var k = document.getElementById('klaar');
+    if (fouten === 0) {
+      k.className = 'ok';
+      k.innerHTML = '<b>Alles in orde.</b> Ga terug naar <a href="./">de app</a> en ' +
+        'ververs daar met Ctrl+Shift+R.';
+    } else {
+      k.className = 'nok';
+      k.innerHTML = '<b>' + fouten + ' ding(en) gaan mis.</b> Maak hier een schermafdruk van.';
+    }
+  }, 3000);
+}
+
+main();
+</script>
+</body>
+</html>

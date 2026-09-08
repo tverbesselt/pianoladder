@@ -1,0 +1,316 @@
+:root {
+  --achter: #0e1116;
+  --paneel: #161b23;
+  --rand: #262d38;
+  --tekst: #e6e9ef;
+  --zacht: #8b95a6;
+  --accent: #ff8a3d;
+  --accent2: #4fc3f7;
+  --goed: #3ddc84;
+  --fout: #ff5f56;
+  --hoog: 74px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--achter);
+  color: var(--tekst);
+  font: 14px/1.4 "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- balken ---------- */
+
+.balk {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 16px;
+  background: var(--paneel);
+  border-bottom: 1px solid var(--rand);
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+.balk.onder {
+  border-bottom: none;
+  border-top: 1px solid var(--rand);
+}
+
+.merk {
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--accent);
+}
+
+.titel {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.titel span {
+  color: var(--zacht);
+  font-size: 12px;
+}
+
+.rechts { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+.klein { font-size: 12px; color: var(--zacht); }
+
+.lamp {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--fout);
+  box-shadow: 0 0 8px currentColor;
+}
+.lamp.aan { background: var(--goed); }
+.lamp.uit { background: #4a5261; box-shadow: none; }
+
+/* ---------- bedieningen ---------- */
+
+.groep { display: flex; align-items: center; gap: 8px; }
+.etiket { color: var(--zacht); font-size: 12px; }
+
+button {
+  background: #222a35;
+  color: var(--tekst);
+  border: 1px solid var(--rand);
+  border-radius: 7px;
+  padding: 7px 13px;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover { border-color: #3d4757; }
+button.hoofd { background: var(--accent); border-color: var(--accent); color: #17120c; font-weight: 600; }
+button.hoofd:hover { filter: brightness(1.08); }
+
+.schakelaars { display: flex; border: 1px solid var(--rand); border-radius: 7px; overflow: hidden; }
+.schakelaars button { border: none; border-radius: 0; background: transparent; padding: 7px 12px; }
+.schakelaars button.aan { background: var(--accent2); color: #08131a; font-weight: 600; }
+
+.veld { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--zacht); }
+.veld b { color: var(--tekst); }
+
+select {
+  background: #222a35; color: var(--tekst);
+  border: 1px solid var(--rand); border-radius: 7px;
+  padding: 6px 9px; font: inherit; max-width: 260px;
+}
+
+input[type=range] { width: 140px; accent-color: var(--accent); }
+.vinkjes label { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--zacht); cursor: pointer; }
+.vinkjes input { accent-color: var(--accent2); }
+
+.stand { margin-left: auto; gap: 16px; color: var(--zacht); font-size: 13px; }
+.stand b { color: var(--tekst); font-size: 15px; }
+
+/* ---------- speelveld ---------- */
+
+main { position: relative; flex: 1 1 auto; min-height: 0; }
+canvas { display: block; width: 100%; height: 100%; }
+
+.melding {
+  position: absolute; left: 50%; top: 26px; transform: translateX(-50%);
+  background: rgba(22,27,35,.94);
+  border: 1px solid var(--rand); border-left: 3px solid var(--accent);
+  border-radius: 8px; padding: 10px 16px; max-width: 640px;
+  color: var(--tekst); font-size: 13px;
+}
+/* Deze hulpklasse moet altijd winnen. Zonder !important verliest hij van
+   regels die verderop staan en zelf een display zetten, zoals .overlay. */
+.verborgen { display: none !important; }
+
+.hulp { padding: 7px 16px; background: var(--paneel); border-top: 1px solid var(--rand); flex: 0 0 auto; }
+kbd {
+  background: #222a35; border: 1px solid var(--rand); border-bottom-width: 2px;
+  border-radius: 4px; padding: 1px 5px; font-family: ui-monospace, Consolas, monospace; font-size: 11px;
+}
+
+/* ---------- bibliotheekvenster ---------- */
+
+.overlay {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(6,8,12,.72);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+
+.venster {
+  background: var(--paneel);
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+  width: min(1100px, 100%);
+  height: min(760px, 100%);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+
+.vensterkop {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--rand);
+  flex: 0 0 auto;
+}
+.vensterkop strong { color: var(--accent); }
+.vensterkop input[type=text], #bibZoek {
+  background: #222a35; color: var(--tekst);
+  border: 1px solid var(--rand); border-radius: 7px;
+  padding: 6px 10px; font: inherit; width: 240px;
+}
+
+.knopachtig {
+  background: #222a35; border: 1px solid var(--rand); border-radius: 7px;
+  padding: 7px 13px; cursor: pointer; font-size: 14px;
+}
+.knopachtig:hover { border-color: #3d4757; }
+
+.vensterinhoud { display: flex; flex: 1 1 auto; min-height: 0; }
+
+#bibLijst {
+  list-style: none; margin: 0; padding: 0;
+  width: 44%; overflow-y: auto;
+  border-right: 1px solid var(--rand);
+}
+
+.rij {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 14px; cursor: pointer;
+  border-bottom: 1px solid #1c222b;
+}
+.rij:hover { background: #1d2530; }
+.rij.dubbel { opacity: .5; }
+
+.niv {
+  flex: 0 0 auto; width: 20px; height: 20px; border-radius: 5px;
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 700; color: #0d1117;
+}
+.niv1 { background: #3ddc84; }
+.niv2 { background: #9ede4b; }
+.niv3 { background: #ffd166; }
+.niv4 { background: #ff9f45; }
+.niv5 { background: #ff6b5e; }
+
+.naam { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.naam b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.naam i { font-style: normal; font-size: 11px; color: var(--zacht); }
+.bij { flex: 0 0 auto; font-size: 11px; color: var(--zacht); }
+
+#bibDetail { flex: 1 1 auto; overflow-y: auto; padding: 18px 22px; }
+#bibDetail h3 { margin: 0 0 2px; font-size: 17px; }
+#bibDetail h4 { margin: 22px 0 6px; font-size: 13px; color: var(--accent2); text-transform: uppercase; letter-spacing: .06em; }
+.leeg { color: var(--zacht); font-size: 13px; margin: 4px 0; }
+.wenk { color: var(--zacht); font-size: 12px; margin: 0 0 8px; }
+
+.sporen { display: flex; flex-direction: column; gap: 5px; }
+.spoorrij {
+  display: grid; grid-template-columns: 18px 1fr auto auto; align-items: center; gap: 10px;
+  background: #1a212b; border: 1px solid var(--rand); border-radius: 8px;
+  padding: 8px 12px; cursor: pointer;
+}
+.spoorrij:has(input:checked) { border-color: var(--accent2); background: #1c2733; }
+.spoornaam { font-weight: 600; }
+.spoorbij { font-size: 11px; color: var(--zacht); }
+.beluister { padding: 3px 10px; font-size: 12px; }
+
+.regel { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin: 6px 0; font-size: 13px; color: var(--zacht); }
+.regel input[type=number] {
+  width: 62px; background: #222a35; color: var(--tekst);
+  border: 1px solid var(--rand); border-radius: 6px; padding: 5px 7px; font: inherit;
+}
+.regel label { display: flex; align-items: center; gap: 6px; }
+
+.trappen { display: flex; gap: 6px; flex-wrap: wrap; }
+.trappen button { font-size: 12px; padding: 7px 11px; }
+.trappen button.aan { background: var(--accent2); border-color: var(--accent2); color: #08131a; font-weight: 600; }
+
+.uitslag {
+  margin: 18px 0 12px; padding: 11px 14px;
+  background: #14202a; border-left: 3px solid var(--accent2); border-radius: 7px;
+  font-size: 13px;
+}
+.waarschuwing { color: var(--fout); }
+button.groot { padding: 11px 22px; font-size: 15px; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+
+.noottest {
+  font-size: 12px; color: var(--zacht);
+  background: #1b2230; border: 1px solid var(--rand); border-radius: 6px;
+  padding: 4px 9px; min-width: 152px; text-align: center;
+  transition: background .15s, color .15s;
+}
+.noottest.raak { background: var(--goed); color: #08140c; border-color: var(--goed); font-weight: 600; }
+
+.diagnose {
+  position: fixed; z-index: 100; left: 50%; top: 12px; transform: translateX(-50%);
+  width: min(680px, calc(100% - 24px));
+  background: #2a1618; color: #ffd9d5;
+  border: 1px solid #7a3a34; border-left: 4px solid var(--fout);
+  border-radius: 9px; padding: 13px 18px;
+  font-size: 13px; line-height: 1.5;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+}
+.diagnose b { color: #fff; font-size: 14px; }
+.diagnose ul { margin: 7px 0 0; padding-left: 19px; }
+.diagnose li { margin: 2px 0; word-break: break-word; }
+
+.diagnose { position: fixed; }
+.sluitkruis {
+  float: right; margin: -4px -6px 0 8px;
+  background: transparent; border: none; color: #ffd9d5;
+  font-size: 19px; line-height: 1; padding: 0 5px; cursor: pointer;
+}
+.sluitkruis:hover { color: #fff; }
+
+button.uitgelicht {
+  background: #1f3a4a; border-color: var(--accent2); color: var(--accent2);
+  font-weight: 600;
+}
+button.uitgelicht:hover { background: #26485c; border-color: var(--accent2); }
+
+/* De keuzelijst mag breder: de titels zijn lang. */
+#keuze { max-width: 320px; }
+optgroup { color: var(--zacht); font-style: normal; }
+optgroup option { color: var(--tekst); }
+
+/* Op een klein of laag venster de kop compacter en het bibliotheekvenster
+   onder elkaar in plaats van naast elkaar. */
+@media (max-height: 620px), (max-width: 900px) {
+  .balk { gap: 10px; padding: 7px 12px; }
+  .overlay { padding: 8px; }
+  .vensterinhoud { flex-direction: column; }
+  #bibLijst { width: 100%; max-height: 45%; border-right: none; border-bottom: 1px solid var(--rand); }
+  .vensterkop { flex-wrap: wrap; gap: 8px; padding: 9px 12px; }
+  #bibZoek { width: 160px; }
+}
+
+.lijstmelding {
+  padding: 16px 18px; font-size: 13px; line-height: 1.6;
+  color: var(--zacht); word-break: break-word;
+}
+.lijstmelding b { color: var(--tekst); font-size: 14px; }
+.lijstmelding.mis { color: #ffd9d5; background: #2a1618; border-left: 3px solid var(--fout); }
+.lijstmelding.mis b { color: #fff; }
+.lijstmelding code {
+  background: #222a35; border: 1px solid var(--rand); border-radius: 4px;
+  padding: 1px 5px; font-family: ui-monospace, Consolas, monospace; font-size: 12px;
+}
+#bibAantal { color: var(--accent2); font-weight: 600; }
+
+.bouw {
+  font-weight: 400; font-size: 10px; color: var(--zacht);
+  background: #222a35; border: 1px solid var(--rand); border-radius: 4px;
+  padding: 1px 5px; margin-left: 5px; vertical-align: middle;
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+.maatkeuze { padding: 5px 12px; font-size: 12px; }

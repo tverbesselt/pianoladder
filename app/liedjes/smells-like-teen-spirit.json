@@ -1,0 +1,149 @@
+{
+ "id": "smells-like-teen-spirit",
+ "titel": "Smells Like Teen Spirit",
+ "artiest": "Nirvana",
+ "bron": "gekochte muziek/NIRVANA/smells_like_teen_spirit.mid",
+ "spoor": 2,
+ "spoornaam": "Kurt Cobain -Clean Guitar-",
+ "bpm": 120,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": -1,
+ "niveau": 1,
+ "lus": true,
+ "toelichting": "Alleen de grondtonen van de vier akkoorden. Een halve toon verschoven: nu E, A, G en C, allemaal wit.",
+ "lengte": 8.0,
+ "laag": 40,
+ "hoog": 48,
+ "zwart": 0,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 1.0,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 0.75,
+   "d": 0.25,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 1.0,
+   "d": 0.5,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 1.75,
+   "d": 0.25,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 2.0,
+   "d": 0.25,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 2.25,
+   "d": 0.25,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 2.5,
+   "d": 0.5,
+   "p": 45,
+   "h": "R"
+  },
+  {
+   "t": 3.0,
+   "d": 0.25,
+   "p": 45,
+   "h": "R"
+  },
+  {
+   "t": 3.25,
+   "d": 0.5,
+   "p": 45,
+   "h": "R"
+  },
+  {
+   "t": 3.5,
+   "d": 0.25,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 4.0,
+   "d": 1.0,
+   "p": 43,
+   "h": "R"
+  },
+  {
+   "t": 4.75,
+   "d": 0.25,
+   "p": 43,
+   "h": "R"
+  },
+  {
+   "t": 5.0,
+   "d": 0.5,
+   "p": 43,
+   "h": "R"
+  },
+  {
+   "t": 5.5,
+   "d": 0.25,
+   "p": 43,
+   "h": "R"
+  },
+  {
+   "t": 5.75,
+   "d": 0.25,
+   "p": 43,
+   "h": "R"
+  },
+  {
+   "t": 6.0,
+   "d": 0.25,
+   "p": 43,
+   "h": "R"
+  },
+  {
+   "t": 6.25,
+   "d": 0.25,
+   "p": 43,
+   "h": "R"
+  },
+  {
+   "t": 6.5,
+   "d": 0.5,
+   "p": 48,
+   "h": "R"
+  },
+  {
+   "t": 7.0,
+   "d": 0.25,
+   "p": 48,
+   "h": "R"
+  },
+  {
+   "t": 7.25,
+   "d": 0.5,
+   "p": 48,
+   "h": "R"
+  },
+  {
+   "t": 7.5,
+   "d": 0.25,
+   "p": 43,
+   "h": "R"
+  }
+ ]
+}

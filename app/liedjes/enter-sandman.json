@@ -1,0 +1,95 @@
+{
+ "id": "enter-sandman",
+ "titel": "Enter Sandman",
+ "artiest": "Metallica",
+ "bron": "gekochte muziek/METALLICA/enter_sandman.mid",
+ "spoor": 1,
+ "spoornaam": "Guitar1",
+ "bpm": 123,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": 0,
+ "niveau": 2,
+ "lus": true,
+ "toelichting": "De hoofdriff. De A# is de beruchte mol-kwint die het stuk zijn dreiging geeft, dus die laat ik staan.",
+ "lengte": 8,
+ "laag": 40,
+ "hoog": 55,
+ "zwart": 1,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 1.0,
+   "p": 45,
+   "h": "R"
+  },
+  {
+   "t": 1.0,
+   "d": 0.5,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 1.5,
+   "d": 1.0,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 2.5,
+   "d": 0.5,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 3.0,
+   "d": 0.5,
+   "p": 55,
+   "h": "R"
+  },
+  {
+   "t": 3.5,
+   "d": 0.5,
+   "p": 46,
+   "h": "R"
+  },
+  {
+   "t": 4.0,
+   "d": 1.0,
+   "p": 45,
+   "h": "R"
+  },
+  {
+   "t": 5.0,
+   "d": 0.5,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 5.5,
+   "d": 1.0,
+   "p": 40,
+   "h": "R"
+  },
+  {
+   "t": 6.5,
+   "d": 0.5,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 7.0,
+   "d": 0.5,
+   "p": 55,
+   "h": "R"
+  },
+  {
+   "t": 7.5,
+   "d": 0.5,
+   "p": 46,
+   "h": "R"
+  }
+ ]
+}

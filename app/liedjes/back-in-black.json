@@ -1,0 +1,107 @@
+{
+ "id": "back-in-black",
+ "titel": "Back in Black",
+ "artiest": "AC/DC",
+ "bron": "gekochte muziek/AC-DC/back_in_black.mid",
+ "spoor": 2,
+ "spoornaam": "Guitar 1  cont.",
+ "bpm": 94,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": 0,
+ "niveau": 2,
+ "lus": true,
+ "toelichting": "Het geraamte van de riff: de losse noten zonder het gitaargeraas eromheen.",
+ "lengte": 12,
+ "laag": 52,
+ "hoog": 62,
+ "zwart": 0,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 1.0,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 1.5,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 1.75,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 2.0,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 3.5,
+   "d": 0.25,
+   "p": 57,
+   "h": "R"
+  },
+  {
+   "t": 3.75,
+   "d": 0.25,
+   "p": 57,
+   "h": "R"
+  },
+  {
+   "t": 4.0,
+   "d": 0.25,
+   "p": 57,
+   "h": "R"
+  },
+  {
+   "t": 8.0,
+   "d": 0.25,
+   "p": 52,
+   "h": "R"
+  },
+  {
+   "t": 9.5,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 9.75,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 10.0,
+   "d": 0.25,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 11.5,
+   "d": 0.25,
+   "p": 57,
+   "h": "R"
+  },
+  {
+   "t": 11.75,
+   "d": 0.25,
+   "p": 57,
+   "h": "R"
+  },
+  {
+   "t": 12.0,
+   "d": 0.25,
+   "p": 57,
+   "h": "R"
+  }
+ ]
+}

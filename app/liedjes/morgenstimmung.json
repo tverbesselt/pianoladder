@@ -1,0 +1,119 @@
+{
+ "id": "morgenstimmung",
+ "titel": "Morgenstimmung",
+ "artiest": "Grieg",
+ "bron": "met de hand genoteerd",
+ "spoor": null,
+ "spoornaam": "",
+ "bpm": 80,
+ "maatsoort": [
+  4,
+  4
+ ],
+ "transpositie": 0,
+ "niveau": 2,
+ "lus": true,
+ "toelichting": "Het ochtendthema uit Peer Gynt, naar C verschoven. Vijf tonen, allemaal wit.",
+ "lengte": 8,
+ "laag": 60,
+ "hoog": 69,
+ "zwart": 0,
+ "noten": [
+  {
+   "t": 0.0,
+   "d": 0.5,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 0.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 1.0,
+   "d": 0.5,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 1.5,
+   "d": 0.5,
+   "p": 60,
+   "h": "R"
+  },
+  {
+   "t": 2.0,
+   "d": 0.5,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 2.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 3.0,
+   "d": 0.5,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 3.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 4.0,
+   "d": 0.5,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 4.5,
+   "d": 0.5,
+   "p": 69,
+   "h": "R"
+  },
+  {
+   "t": 5.0,
+   "d": 0.5,
+   "p": 67,
+   "h": "R"
+  },
+  {
+   "t": 5.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  },
+  {
+   "t": 6.0,
+   "d": 0.5,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 6.5,
+   "d": 0.5,
+   "p": 60,
+   "h": "R"
+  },
+  {
+   "t": 7.0,
+   "d": 0.5,
+   "p": 62,
+   "h": "R"
+  },
+  {
+   "t": 7.5,
+   "d": 0.5,
+   "p": 64,
+   "h": "R"
+  }
+ ]
+}
